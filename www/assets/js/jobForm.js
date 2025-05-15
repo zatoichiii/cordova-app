@@ -1,6 +1,6 @@
 import { DIAGNOSES, ADMINS, STATUSES, PARAMEDICS, COMPLEX } from '../constants/main.js';
 
-document.querySelectorAll('input[name="price"], input[name="zoom"], input[name="bads"], input[name="prepayment"]').forEach(input => {
+document.querySelectorAll('input[name="price"], input[name="allPay"], input[name="zoom"], input[name="bads"], input[name="prepayment"]').forEach(input => {
   input.addEventListener('input', () => {
     let value = input.value.replace(/[^\d,]/g, '');
 

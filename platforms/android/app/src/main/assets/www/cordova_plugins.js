@@ -141,6 +141,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "cordova.plugins.permissions"
       ]
+    },
+    {
+      "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+      "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+      "pluginId": "phonegap-plugin-barcodescanner",
+      "clobbers": [
+        "cordova.plugins.barcodeScanner"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -148,6 +156,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova.plugins.diagnostic": "7.2.3",
     "cordova-plugin-geolocation": "5.0.0",
     "cordova-plugin-camera": "8.0.0",
-    "cordova-plugin-android-permissions": "1.1.5"
+    "cordova-plugin-android-permissions": "1.1.5",
+    "phonegap-plugin-barcodescanner": "8.1.0"
   };
 });

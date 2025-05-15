@@ -25,6 +25,10 @@
     },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "com.example.myapp"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.example.myapp"
     }
   },
   "dependent_plugins": {}

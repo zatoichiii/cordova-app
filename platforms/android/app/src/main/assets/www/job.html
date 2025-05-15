@@ -183,12 +183,11 @@
                 <img src="/assets/images/icons/map-pin-gray.svg" alt="calendar">
                 <input name="price" class="job-detail__input" type="text" placeholder="4 км">
               </div>
-               <div class="show-map-block" id="showMapModal">Показать карту </div>
+              <div class="show-map-block" id="showMapModal">Показать карту </div>
             </div>
           </div>
 
-          <div class="job-detai__item">
-            <div class="job-detail__title">Оплата по QR-коду</div>
+          <div class="job-detai__item" id="qrPay">
           </div>
 
           <div class="job-detai__item">
@@ -207,8 +206,13 @@
               class="job-detail__input" type="text"></textarea>
           </div>
 
+          <div class="job-detai__item">
+            <div class="job-detail__title">Сканирование QR-кодов</div>
+            <div class="scanner-job-detail" id="scannner"></div>
+          </div>
+
           <div class="download-all-button" id="downloadAll">
-            <img src="/assets/images/icons/downloadAll.svg" alt="download"/>
+            <img src="/assets/images/icons/downloadAll.svg" alt="download" />
             <span>Скачать все фото</span>
           </div>
         </form>
@@ -217,18 +221,20 @@
     <footer class="job-footer">
       <div class="go-button" id="go-button-bottom">
         <span><a href="/map.html">Выехать</a></span>
-        <img src="/assets/images/icons/navigation-ico.svg" alt=""/>
+        <img src="/assets/images/icons/navigation-ico.svg" alt="" />
       </div>
       <div class="start-button" id="start-button-bototm">
         <span>Начать</span>
-        <img src="/assets/images/icons/start-ico.svg" alt=""/>
+        <img src="/assets/images/icons/start-ico.svg" alt="" />
       </div>
     </footer>
   </div>
 
   <script src="cordova.js"></script>
+  <script type="module" src="/assets/js/scan.js"></script>
   <script type="module" src="/assets/js/jobDetails.js"></script>
   <script type="module" src="/assets/js/jobForm.js"></script>
+  <script type="module" src="/assets/js/qrPay.js"></script>
   <script type="module" src="/assets/js/photoUpload.js"></script>
   <script type="module" src="/assets/js/preparation.js"></script>
   <script type="module" src="/assets/js/showMap.js"></script>

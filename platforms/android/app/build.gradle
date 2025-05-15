@@ -113,6 +113,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "../phonegap-plugin-barcodescanner/myapp-barcodescanner.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -328,6 +329,7 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
     implementation "androidx.appcompat:appcompat:1.3.1"
     implementation "androidx.core:core:1.6.+"
+    implementation "com.android.support:support-v4:27.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 
