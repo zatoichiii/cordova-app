@@ -1,0 +1,43 @@
+.container__profile {
+    width: 100%;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+}
+
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 18px;
+    margin-top: 18px;
+}
+
+.profile-item:last-child{
+    border-bottom: 0;
+}
+
+#userName {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
+}
+
+.profile-items{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.geo-text{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.slider-ios::before{
+    left: 2px;
+}

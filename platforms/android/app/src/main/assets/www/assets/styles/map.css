@@ -1,0 +1,130 @@
+.map__header {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+
+
+#map {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 120px);
+}
+
+.map__header .calendar-wrapper {
+    margin: 0;
+}
+
+
+.job-modal {
+    position: fixed;
+    bottom: -300px;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 1000;
+    padding: 16px;
+    transition: bottom 0.3s ease-out;
+    border-radius: 16px 16px 0 0;
+    padding-top: 0;
+}
+
+.job-modal.show {
+    bottom: 0px;
+}
+
+.job-modal-content {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+}
+
+.modal-buttons {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.modal-btn {
+    padding: 10px 17px;
+    background-color: #F9F5FF;
+    color: #6941C6;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    width: 60%;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+.modal-btn.start-route-btn {
+    background-color: #7F56D9;
+    color: white;
+    width: 40%;
+    font-weight: 500;
+}
+
+.job-modal-line {
+    width: 32px;
+    height: 4px;
+    background-color: #ccc;
+    border-radius: 2px;
+    margin: 8px auto 12px;
+    cursor: grab;
+}
+
+.job-modal:active .job-modal-line {
+    background-color: #aaa;
+}
+
+.map__inline-flex-info {
+    display: flex;
+    gap: 16px;
+    border-top: 2px solid #F2F4F7;
+}
+
+.job-modal__item {
+    border-top: 2px solid #F2F4F7;
+    font-size: 12px;
+    color: #667085;
+    padding-top: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    gap: 4px;
+}
+
+.job-modal__item-flex {
+    color: #667085;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-top: 8px;
+}
+
+.job-modal__title {
+    color: #101828;
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.job-modal__id {
+    font-weight: 400;
+    margin-bottom: 8px;
+    font-size: 10px;
+    color: #98A2B3;
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Детали наряда</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/main.css" />
+  <link rel="stylesheet" href="/assets/styles/job.css" />
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+</head>
+
+<body class="job-page">
+  <div class="job-container">
+    <header class="job-header">
+      <button onclick="window.history.back()" class="back-btn">
+        <img src="./assets/images/icons/chevron-left.svg" />
+        Наряды
+      </button>
+      <div class="job-status-inline">
+        <img id="job-icon" src="" alt="Статус" />
+        <span id="job-status-text"></span>
+      </div>
+      <span id="job-id" class="job-id">#000000</span>
+
+    </header>
+
+
+    <div id="job-main-info-after-header" class="job__main-info">
+
+    </div>
+    <div class="more-details-with-tabs">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="details">Подробности</button>
+        <button class="tab-btn" data-tab="form">Отчет</button>
+      </div>
+      <div class="tab-content" id="tab-details">
+      </div>
+      <div class="tab-content hidden" id="tab-form">
+        <form id="job-report-form">
+          <div class="job-detai__item">
+            <div class="job-detail__title">Администратор</div>
+            <div class="custom-select">
+              <div class="select-header" id="admin-select-header">
+                <span id="admin-selected-option">Не выбрано</span>
+                <span class="arrow" id="admin-arrow-icon">
+                  <img src="./assets/images/icons/chevron-up.svg" />
+                </span>
+              </div>
+              <ul class="select-options" id="admin-select-options"></ul>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Фельдшер</div>
+            <div class="custom-select">
+              <div class="select-header" id="paramedic-select-header">
+                <span id="paramedic-selected-option">Не выбрано</span>
+                <span class="arrow" id="paramedic-arrow-icon">
+                  <img src="./assets/images/icons/chevron-up.svg" />
+                </span>
+              </div>
+              <ul class="select-options" id="paramedic-select-options"></ul>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Итоговая стоимость</div>
+            <input name="price" class="job-detail__input" type="text" placeholder="₽ 00.0" />
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Зум психотерапия онлайн</div>
+            <input name="zoom" class="job-detail__input" type="text" placeholder="₽ 00.0" />
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">БАДы</div>
+            <input name="bads" class="job-detail__input" type="text" placeholder="₽ 00.0" />
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Комментарий</div>
+            <textarea style="min-height: 154px" name="comment" class="job-detail__input" type="text"></textarea>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Предоплата</div>
+            <input name="prepayment" class="job-detail__input" type="text" placeholder="₽ 00.0" />
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Состояние статус</div>
+            <div class="custom-select">
+              <div class="select-header" id="status-select-header">
+                <span id="status-selected-option">Не указано</span>
+                <span class="arrow" id="status-arrow-icon"><img src="./assets/images/icons/chevron-up.svg" /></span>
+              </div>
+              <ul class="select-options" id="status-select-options"></ul>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Комплексная терапия</div>
+            <div class="custom-select">
+              <div class="select-header" id="complex-select-header">
+                <span id="complex-selected-option">Не указано</span>
+                <span class="arrow" id="complex-arrow-icon"><img src="./assets/images/icons/chevron-up.svg" /></span>
+              </div>
+              <ul class="select-options" id="complex-select-options"></ul>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <p>Получено согласие на обработку персональных данных:</p>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="medical-consent" value="yes" checked />
+                <span>Да</span>
+              </label>
+              <label>
+                <input type="radio" name="medical-consent" value="no" />
+                <span>Нет</span>
+              </label>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <p>Получено согласие на медицинское вмешательство:</p>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="medical-vmesh" value="yes" checked />
+                <span>Да</span>
+              </label>
+              <label>
+                <input type="radio" name="medical-vmesh" value="no" />
+                <span>Нет</span>
+              </label>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <p>Заключен договор на оказание медицинских услуг:</p>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="medical-serv" value="yes" checked />
+                <span>Да</span>
+              </label>
+              <label>
+                <input type="radio" name="medical-serv" value="no" />
+                <span>Нет</span>
+              </label>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <p>Подписано уведомление о последствиях не исполнения указаний (рекомендаций):</p>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="medical-rec" value="yes" checked />
+                <span>Да</span>
+              </label>
+              <label>
+                <input type="radio" name="medical-rec" value="no" />
+                <span>Нет</span>
+              </label>
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Диагноз клиента</div>
+            <div class="custom-select">
+              <div class="select-header" id="diagnosis-select-header">
+                <span id="diagnosis-selected-option">Не указано</span>
+                <span class="arrow" id="diagnosis-arrow-icon"><img src="./assets/images/icons/chevron-up.svg" /></span>
+              </div>
+              <ul class="select-options" id="diagnosis-select-options"></ul>
+            </div>
+          </div>
+
+          <div class="job-detai__item">
+            <div class="job-detail__title">Выберите препараты</div>
+            <div id="medications-js-block" class="medications"></div>
+          </div>
+
+          <div class="job-detai__item">
+            <div class="job-detail__title">Пройдено по наряду</div>
+            <div class="job-detail-map-row">
+              <div class="input-with-icon">
+                <img src="/assets/images/icons/map-pin-gray.svg" alt="calendar">
+                <input name="price" class="job-detail__input" type="text" placeholder="4 км">
+              </div>
+               <div class="show-map-block" id="showMapModal">Показать карту </div>
+            </div>
+          </div>
+
+          <div class="job-detai__item">
+            <div class="job-detail__title">Оплата по QR-коду</div>
+          </div>
+
+          <div class="job-detai__item">
+            <div class="job-detail__title">Чек подтверждения</div>
+            <div class="photo-upload" data-name="download-first">
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Предоплаченный повтор чек</div>
+            <div class="photo-upload" data-name="download-second">
+            </div>
+          </div>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Статус оплаты QR</div>
+            <textarea style="min-height: 154px;" placeholder="Добавьте комментарий..." name="comment"
+              class="job-detail__input" type="text"></textarea>
+          </div>
+
+          <div class="download-all-button" id="downloadAll">
+            <img src="/assets/images/icons/downloadAll.svg" alt="download"/>
+            <span>Скачать все фото</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer class="job-footer">
+      <div class="go-button" id="go-button-bottom">
+        <span><a href="/map.html">Выехать</a></span>
+        <img src="/assets/images/icons/navigation-ico.svg" alt=""/>
+      </div>
+      <div class="start-button" id="start-button-bototm">
+        <span>Начать</span>
+        <img src="/assets/images/icons/start-ico.svg" alt=""/>
+      </div>
+    </footer>
+  </div>
+
+  <script src="cordova.js"></script>
+  <script type="module" src="/assets/js/jobDetails.js"></script>
+  <script type="module" src="/assets/js/jobForm.js"></script>
+  <script type="module" src="/assets/js/photoUpload.js"></script>
+  <script type="module" src="/assets/js/preparation.js"></script>
+  <script type="module" src="/assets/js/showMap.js"></script>
+  <script type="module" src="/assets/js/buttonsBottom.js"></script>
+</body>
+
+</html>

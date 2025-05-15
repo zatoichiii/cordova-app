@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <link rel="preconnect" href="/">
+    <link rel="stylesheet" href="/assets/fonts/inter.css">
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <link rel="stylesheet" href="/assets/styles/profile.css" />
+    <script type="module" src="/assets/constants/jobs.js" defer></script>
+</head>
+
+
+<body>
+    <div class="container__profile">
+        <div id="userName">Username</div>
+        <div class="profile-items">
+            <div class="profile-item">
+                <div class="geo-text">
+                    <p class="geo-text__title">Геолокация</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="Geoloc" aria-label="Геолокация" />
+                    <span class="slider-ios"></span>
+                </label>
+            </div>
+            <a href="tel:+79991112233" class="profile-item">
+                <div class="geo-text">
+                    <p class="geo-text__title">Позвонить диспетчеру</p>
+                    <img src="./assets/images/icons/call-acc.svg"/>
+                </div>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger&hl=ru&pli=1" class="profile-item">
+                <div class="geo-text">
+                    <p class="geo-text__title">Связаться в Telegram</p>
+                    <img src="./assets/images/icons/tg-acc.svg"/>
+                </div>
+            </a>
+            <a href="/" class="profile-item">
+                <div class="geo-text">
+                    <p class="geo-text__title">Выход</p>
+                    <img src="./assets/images/icons/log-out-acc.svg"/>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+    <div class="nav-menu">
+        <a href="/home.html" class="nav-item">
+            <img class="nav-item-image" src="./assets/images/icons/main-nav.svg" />
+        </a>
+        <a href="/map.html" class="nav-item">
+            <img class="nav-item-image" src="./assets/images/icons/map-nav.svg" />
+        </a>
+        <a href="/profile.html" class="nav-item">
+            <img class="nav-item-image active" src="./assets/images/icons/profile-nav-active.svg" />
+        </a>
+    </div>
+    <script src="/assets/js/auth.js"></script>
+</body>
+
+</html>

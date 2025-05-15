@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Завершение наряда</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <link rel="stylesheet" href="/assets/styles/job-finish.css" />
+    <link rel="stylesheet" href="/assets/styles/job.css" />
+
+
+</head>
+
+<body>
+    <header class="job-header">
+        <button onclick="window.history.back()" class="back-btn">
+            <img src="./assets/images/icons/chevron-left.svg" />
+            <div id="nameOfFinish"></div>
+        </button>
+        <span id="job-id" class="job-id"></span>
+
+    </header>
+    <div class="finish-container">
+        <h1>Заверщение наряда</h1>
+        <div id="job-info" class="job-info"></div>
+        <button id="back-button">На главную</button>
+    </div>
+
+    <script type="module" src="/assets/js/job-finish.js"></script>
+    <script type="module" src="/assets/js/jobForm.js"></script>
+</body>
+
+</html>

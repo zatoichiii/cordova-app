@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <link rel="preconnect" href="/">
+    <link rel="stylesheet" href="/assets/fonts/inter.css">
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <link rel="stylesheet" href="/assets/styles/auth.css" />
+</head>
+
+
+<body class="login-page">
+    <div class="container">
+        <div class="app-header">
+            <div class="app-icon">
+                <img src="./assets/images/icons/mainLogo.svg" />
+            </div>
+        </div>
+
+        <form id="loginForm" class="login-form">
+            <div class="input-group">
+                <div class="input-with-icon">
+                    <img src="./assets/images/icons/mail.svg" alt="Почта" />
+                    <input type="text" id="username" placeholder="Почта" />
+                </div>
+                <div class="error-message" id="usernameError">Минимум 2 символа</div>
+                <div class="error-icon">❗</div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-with-icon">
+                    <img src="./assets/images/icons/lock.svg" alt="Пароль" />
+                    <input type="password" id="password" placeholder="Пароль" />
+                </div>
+                <div class="error-message" id="passwordError">Минимум 2 символа</div>
+                <div class="error-icon" id="passwordIcon">❗</div>
+            </div>
+
+            <div class="remember-wrapper">
+                <label class="switch">
+                    <input type="checkbox" id="rememberMe" aria-label="Запомнить меня" />
+                    <span class="slider-ios"></span>
+                </label>
+                <div class="remember-text">
+                    <p class="remember-text__title">Запомнить меня</p>
+                    <p class="remember-text__desc">Сохранить мой логин и пароль на месяц.</p>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Войти</button>
+        </form>
+    </div>
+
+    <script src="/assets/js/auth.js"></script>
+</body>
+
+</html>

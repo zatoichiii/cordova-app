@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Главная</title>
+  <link rel="preconnect" href="/">
+  <link rel="stylesheet" href="/assets/fonts/inter.css">
+  <link rel="stylesheet" href="/assets/styles/main.css" />
+  <link rel="stylesheet" href="/assets/styles/home.css" />
+  <script type="module" src="/assets/constants/jobs.js" defer></script>
+</head>
+
+
+<body>
+
+  <div class="header">
+    <h1>Наряды</h1>
+    <div class="sort-buttons">
+      <button id="sortByDateBtn">По дням</button>
+    </div>
+  </div>
+
+  <div class="calendar-wrapper">
+    <img src="/assets/images/icons/calendar.svg" />
+    <div class="calendar-header" id="calendarHeader">Открыть календарь</div>
+  </div>
+
+
+  <select id="monthSelect"></select>
+  <select id="yearSelect"></select>
+
+  <div class="jobs-list">
+  </div>
+
+  <div class="calendar-popup" id="calendarPopup">
+    <div class="calendar-header-top">
+      <button id="prevMonth">‹</button>
+      <h2 id="calendarTitle"></h2>
+      <button id="nextMonth">›</button>
+    </div>
+
+    <div class="calendar-date-range">
+      <input type="text" id="dateFrom" placeholder="От" readonly />
+      <span>—</span>
+      <input type="text" id="dateTo" placeholder="До" readonly />
+    </div>
+
+    <div class="calendar-shortcuts">
+      <button id="yesterday">Вчера</button>
+      <button id="today">Сегодня</button>
+      <button id="tomorrow">Завтра</button>
+    </div>
+
+    <div class="calendar-days" id="calendarDays"></div>
+
+    <div class="calendar-footer">
+      <button id="applyBtn">Закрыть</button>
+    </div>
+  </div>
+
+  <div class="nav-menu">
+    <a href="/home.html" class="nav-item">
+      <img class="nav-item-image active" src="./assets/images/icons/main-nav-active.svg" />
+    </a>
+    <a href="/map.html" class="nav-item">
+      <img class="nav-item-image" src="./assets/images/icons/map-nav.svg" />
+    </a>
+    <a href="/profile.html" class="nav-item">
+      <img class="nav-item-image" src="./assets/images/icons/profile-nav.svg" />
+    </a>
+  </div>
+
+  <script type="module" src="/assets/js/jobs.js"></script>
+  <script src="/assets/js/calendar.js"></script>
+</body>
+
+</html>
