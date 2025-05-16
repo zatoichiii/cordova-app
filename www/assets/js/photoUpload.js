@@ -1,9 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-
   const permissions = cordova.plugins.permissions;
-
   const requiredPermissions = [
     permissions.CAMERA,
     permissions.READ_EXTERNAL_STORAGE,
@@ -18,17 +16,49 @@ function onDeviceReady() {
         if (status.hasPermission) {
           console.log("Разрешения получены");
         } else {
+          console.error("Не получены все необходимые разрешения.");
         }
       }, function () {
-        alert("Ошибка при запросе разрешений");
+        console.error("Ошибка при запросе разрешений");
       });
     }
   }, function () {
-    alert("Ошибка при проверке разрешений");
+    console.error("Ошибка при проверке разрешений");
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const modalHtml = `
+    <div id="photoModal" class="photo-modal" style="display: none;">
+      <span class="photo-modal-close">&times;</span>
+      <img class="photo-modal-content" id="photoModalImg">
+    </div>
+
+    <div id="photoSourceModal" class="photo-source-modal" style="display: none;">
+      <div class="photo-source-content">
+        <button id="chooseCamera" class="photo-source-btn">Сделать фото</button>
+        <button id="chooseGallery" class="photo-source-btn second">Выбрать из галереи</button>
+        <button id="cancelPhotoChoice" class="photo-source-cancel">Отмена</button>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+  const style = document.createElement("style");
+  style.innerHTML = `
+
+  `;
+  document.head.appendChild(style);
+
+  const modal = document.getElementById("photoModal");
+  const modalImg = document.getElementById("photoModalImg");
+  const closeBtn = document.querySelector(".photo-modal-close");
+
+  closeBtn.onclick = () => (modal.style.display = "none");
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
+
   document.querySelectorAll(".photo-upload").forEach(container => {
     addUploadButton(container);
   });
@@ -48,33 +78,44 @@ function addUploadButton(container) {
   });
 }
 
-
 function uploadPhoto(container, button) {
-  navigator.camera.getPicture(
-    function (base64Data) {
-      if (base64Data.startsWith('data:image')) {
-        base64Data = base64Data.split(',')[1];
+  const sourceModal = document.getElementById("photoSourceModal");
+  sourceModal.style.display = "flex";
+
+  const cleanup = () => {
+    sourceModal.style.display = "none";
+  };
+
+  const handleChoice = (sourceType) => {
+    navigator.camera.getPicture(
+      function (base64Data) {
+        if (base64Data.startsWith('data:image')) {
+          base64Data = base64Data.split(',')[1];
+        }
+        addPhotoPreview(container, base64Data);
+        button.remove();
+        addUploadButton(container);
+        cleanup();
+      },
+      function (message) {
+        console.error("Ошибка при получении изображения: " + message);
+        cleanup();
+      },
+      {
+        quality: 80,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: sourceType,
+        encodingType: Camera.EncodingType.JPEG,
+        mediaType: Camera.MediaType.PICTURE,
+        correctOrientation: true,
+        saveToPhotoAlbum: false,
       }
+    );
+  };
 
-      addPhotoPreview(container, base64Data);
-
-      button.remove();
-
-      addUploadButton(container);
-    },
-    function (message) {
-      console.error("Ошибка при получении изображения: " + message);
-    },
-    {
-      quality: 80,
-      destinationType: Camera.DestinationType.DATA_URL, // base64
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      encodingType: Camera.EncodingType.JPEG,
-      mediaType: Camera.MediaType.PICTURE,
-      correctOrientation: true,
-      saveToPhotoAlbum: false,
-    }
-  );
+  document.getElementById("chooseCamera").onclick = () => handleChoice(Camera.PictureSourceType.CAMERA);
+  document.getElementById("chooseGallery").onclick = () => handleChoice(Camera.PictureSourceType.PHOTOLIBRARY);
+  document.getElementById("cancelPhotoChoice").onclick = cleanup;
 }
 
 function addPhotoPreview(container, base64Data) {
@@ -88,9 +129,16 @@ function addPhotoPreview(container, base64Data) {
   const thumb = document.createElement("div");
   thumb.className = "photo-thumb";
   thumb.innerHTML = `
-    <img src="data:image/jpeg;base64,${base64Data}" />
+    <img class="preview-image" src="data:image/jpeg;base64,${base64Data}" />
     <div class="remove-btn">&times;</div>
   `;
+
+  thumb.querySelector(".preview-image").addEventListener("click", () => {
+    const modal = document.getElementById("photoModal");
+    const modalImg = document.getElementById("photoModalImg");
+    modalImg.src = `data:image/jpeg;base64,${base64Data}`;
+    modal.style.display = "flex";
+  });
 
   thumb.querySelector(".remove-btn").addEventListener("click", () => {
     thumb.remove();

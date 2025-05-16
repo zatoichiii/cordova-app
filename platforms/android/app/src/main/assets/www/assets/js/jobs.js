@@ -1,11 +1,11 @@
-import { JOBS, STATUS_ICONS } from '../constants/jobs.js';
+import { JOBS, STATUS_ICONS, STATUS_COLORS, STATUS_COLOR_TEXT, STATUS_COLOR_BG } from '../constants/jobs.js';
 
 const jobsList = document.querySelector('.jobs-list');
 
 let selectedDateFrom = null;
 let selectedDateTo = null;
 let currentStatusFilter = 'all';
-let currentRenderMode = 'status'; 
+let currentRenderMode = 'status';
 
 const statusLabels = {
   'in-progress': 'В процессе',
@@ -55,7 +55,34 @@ function renderJobs(jobs, mode = 'status') {
 
       const header = document.createElement('div');
       header.className = 'status-header';
-      header.innerText = `${statusLabels[status]} (${jobsArray.length})`;
+
+      const statusColorBg = STATUS_COLOR_BG[status];
+      const statusColorText = STATUS_COLOR_TEXT[status];
+
+      header.innerHTML = `
+      <span>${statusLabels[status]}</span>
+      <div class="status__right-side">
+        <span 
+          class="right-side__count" 
+          style="
+            background-color: ${statusColorBg}; 
+            color: ${statusColorText}; 
+            padding: 5px;
+            border-radius: 50%; 
+            font-size: 12px;
+            font-weight: 500;
+            min-width: 24px;
+            min-height: 24px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >${jobsArray.length}</span>
+        <span class="arrow" id="status-arrow-icon"><img src="./assets/images/icons/chevron-up.svg"></span>
+      </div>
+    `;
+
 
       const content = document.createElement('div');
       content.className = 'status-content';
@@ -86,7 +113,11 @@ function renderJobs(jobs, mode = 'status') {
       });
 
       header.addEventListener('click', () => {
-        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        const isVisible = content.style.display === 'block';
+        content.style.display = isVisible ? 'none' : 'block';
+
+        const arrow = header.querySelector('.arrow');
+        arrow.classList.toggle('rotated', !isVisible);
       });
 
       statusContainer.appendChild(header);
@@ -120,13 +151,13 @@ function filterAndSortJobs() {
 }
 
 const sortByDateBtn = document.getElementById('sortByDateBtn');
-if (sortByDateBtn){
+if (sortByDateBtn) {
   sortByDateBtn.addEventListener('click', () => {
-    currentStatusFilter = 'all'; 
-    selectedDateFrom = null;     
+    currentStatusFilter = 'all';
+    selectedDateFrom = null;
     selectedDateTo = null;
-    currentRenderMode = 'date'; 
-  
+    currentRenderMode = 'date';
+
     filterAndSortJobs();
   });
 }
@@ -141,7 +172,7 @@ statusAccordionWrapper.innerHTML = `
   <button class="status-filter-btn">По статусу</button>
 `;
 
-if (sortButtons){
+if (sortButtons) {
   sortButtons.appendChild(statusAccordionWrapper);
 
 }
@@ -159,12 +190,12 @@ statusFilterBtn.addEventListener('click', () => {
     statusDropdown.style.display === 'block' ? 'none' : 'block';
 });
 
-if (statusDropdown){
+if (statusDropdown) {
   statusDropdown.querySelectorAll('.status-option').forEach(option => {
     option.addEventListener('click', () => {
       const status = option.getAttribute('data-status');
       currentStatusFilter = status;
-      currentRenderMode = 'date'; 
+      currentRenderMode = 'date';
       statusFilterBtn.innerText = option.innerText;
       statusDropdown.style.display = 'none';
       filterAndSortJobs();
@@ -174,8 +205,8 @@ if (statusDropdown){
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  if (sortByDateBtn){
-    sortByDateBtn.click(); 
+  if (sortByDateBtn) {
+    sortByDateBtn.click();
   }
 });
 

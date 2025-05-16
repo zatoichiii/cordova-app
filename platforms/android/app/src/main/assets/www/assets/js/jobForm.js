@@ -28,7 +28,8 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.getElementById(`tab-${btn.dataset.tab}`).classList.remove('hidden');
   });
 });
-
+const form = document.getElementById('job-report-form');
+if (form) {
 document.getElementById('job-report-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -56,7 +57,7 @@ document.getElementById('job-report-form').addEventListener('submit', async (e) 
     alert(err.message);
   }
 });
-
+}
 
 
 

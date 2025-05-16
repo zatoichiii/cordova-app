@@ -574,7 +574,8 @@ body {
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 0%;
-
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .map-modal-content .remove-btn-map-modal {
@@ -793,15 +794,15 @@ body {
   margin-top: 12px;
 }
 
-.chevron-icon{
+.chevron-icon {
   transition: 0.3s;
 }
 
-.chevron-icon.rotated{
+.chevron-icon.rotated {
   transform: rotate(180deg);
 }
 
-#generateQrBtn{
+#generateQrBtn {
   background-color: #F9F5FF;
   color: #6941C6;
   font-weight: 500;
@@ -920,14 +921,116 @@ body {
   font-weight: bold;
 }
 
-.qr-check-result.success {
-  color: green;
+
+
+.qr-check-btn.checking {
+  background-color: #f0ad4e;
+  color: #fff;
 }
 
-.qr-check-result.failed {
-  color: red;
+.qr-check-btn.success {
+  background-color: #5cb85c;
+  color: #fff;
 }
 
-.qr-check-result.checking {
-  color: #999;
+.qr-check-btn.failed {
+  background-color: #d9534f;
+  color: #fff;
 }
+
+.photo-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.photo-modal-close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #F2F4F7;
+  color: #344054;
+  border-radius: 50%;
+  font-weight: 300;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  justify-content: center;
+  bottom: 30px;
+  display: flex;
+  user-select: none;
+  z-index: 10;
+  font-size: 30px;
+  align-items: center;
+}
+
+.photo-source-modal {
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.photo-source-content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photo-source-btn {
+  padding: 14px;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6941C6;
+  color: white;
+}
+
+.photo-source-cancel {
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background: #F9F5FF;
+  color: #6941C6;
+  text-align: center;
+}
+
+.photo-source-btn.second{
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.finish-container .job-info{
+  margin: 0;
+}
+

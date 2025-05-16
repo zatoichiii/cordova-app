@@ -13,7 +13,7 @@ const JOBS = [
     dispatcher: 'Королева  Марина',
     service: 'Капельница',
     age: '22',
-    tel:'+7(999)-999-00-00'
+    tel: '+7(999)-999-00-00'
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const JOBS = [
     dispatcher: 'Королева  Марина',
     service: 'Какая-то услуга',
     age: '22',
-    tel:'+7(999)-999-00-00'
+    tel: '+7(999)-999-00-00'
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const JOBS = [
     dispatcher: 'Королева  Марина',
     service: 'Вывод из запоя',
     age: '22',
-    tel:'+7(999)-999-00-00'
+    tel: '+7(999)-999-00-00'
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ const JOBS = [
     dispatcher: 'Королева  Марина',
     service: 'Вывод из запоя',
     age: '22',
-    tel:'+7(999)-999-00-00'
+    tel: '+7(999)-999-00-00'
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ const JOBS = [
     dispatcher: 'Королева  Марина',
     service: 'Вывод из запоя',
     age: '22',
-    tel:'+7(999)-999-00-00'
+    tel: '+7(999)-999-00-00'
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ const JOBS = [
     dispatcher: 'Королева  Марина',
     service: 'Вывод из запоя',
     age: '22',
-    tel:'+7(999)-999-00-00'
+    tel: '+7(999)-999-00-00'
   }
 ];
 
@@ -106,6 +106,22 @@ const STATUS_ICONS = {
 
 };
 
+const STATUS_COLOR_BG = {
+  'in-progress': '#F2F4F7',
+  'completed': '#FEF0C7',
+  'pending': '#F9F5FF',
+  'canceled': '#FEE4E2',
+  'option': '#F2F4F7',
+}
+
+const STATUS_COLOR_TEXT = {
+  'in-progress': '#344054',
+  'completed': '#DC6803',
+  'pending': '#6941C6',
+  'canceled': '#D92D20',
+  'option': '#344054',
+}
+
 const STATUS_COLORS = {
   'in-progress': './assets/images/icons/pins/purple.png',
   'completed': './assets/images/icons/pins/green.png',
@@ -113,5 +129,5 @@ const STATUS_COLORS = {
   'canceled': './assets/images/icons/pins/gray.png',
   'option': './assets/images/icons/pins/gray.png',
 }
- 
-export { JOBS, STATUS_ICONS, STATUS_COLORS };
+
+export { JOBS, STATUS_ICONS, STATUS_COLORS, STATUS_COLOR_BG, STATUS_COLOR_TEXT };

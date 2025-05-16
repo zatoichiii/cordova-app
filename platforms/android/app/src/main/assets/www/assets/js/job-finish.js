@@ -16,16 +16,27 @@ if (job) {
             <p>${job.title}</p>
             `
     container.innerHTML = `
-        <p><strong>Задание:</strong> ${job.title}</p>
-        <p><strong>Адрес:</strong> ${job.address}</p>
-        <p><strong>Дата:</strong> ${job.date}</p>
-        <p><strong>Время:</strong> ${job.timeStart} – ${job.timeEnd}</p>
-        <p><strong>Статус:</strong> Завершено</p>
+          <div class="job-detai__item">
+            <div class="job-detail__title">Выберите резолюцию</div>
+            <div class="custom-select">
+              <div class="select-header" id="admin-select-header">
+                <span id="admin-selected-option">Не выполнен</span>
+                <span class="arrow" id="admin-arrow-icon">
+                  <img src="./assets/images/icons/chevron-up.svg" />
+                </span>
+              </div>
+              <ul class="select-options" id="admin-select-options"></ul>
+            </div>
+          </div>
+
+        <div class="job-detai__item">
+            <div class="job-detail__title">Комментарий</div>
+            <textarea placeholder="Добавить описание..." style="min-height: 154px" name="comment" class="job-detail__input" type="text"></textarea>
+          </div>
+
       `;
 } else {
-    container.innerHTML = `<p style="color:red;">Задание не найдено</p>`;
+    console.warn('Задание не найдено');
 }
 
-document.getElementById('back-button').addEventListener('click', () => {
-    window.location.href = '/index.html';
-});
+
