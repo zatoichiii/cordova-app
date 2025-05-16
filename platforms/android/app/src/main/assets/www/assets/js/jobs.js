@@ -19,6 +19,14 @@ const statusLabels = {
 function renderJobs(jobs, mode = 'status') {
   jobsList.innerHTML = '';
 
+
+  if (jobs.length === 0) {
+    const noJobs = document.createElement('div');
+    noJobs.className = 'no-jobs';
+    noJobs.textContent = 'Нет заданий';
+    jobsList.appendChild(noJobs);
+  }
+  
   if (mode === 'date') {
     jobs.forEach(job => {
       const jobCard = document.createElement('a');

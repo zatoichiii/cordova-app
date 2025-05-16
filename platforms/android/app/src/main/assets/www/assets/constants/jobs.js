@@ -2,7 +2,7 @@ const JOBS = [
   {
     id: 1,
     status: 'in-progress',
-    date: '2025-04-14',
+    date: '2025-05-20',
     timeStart: '13:00',
     timeEnd: '14:00',
     title: 'Первичный выезд',
@@ -18,7 +18,7 @@ const JOBS = [
   {
     id: 2,
     status: 'completed',
-    date: '2025-04-22',
+    date: '2025-05-16',
     timeStart: '14:30',
     timeEnd: '15:30',
     title: 'Вторичный выезд',
